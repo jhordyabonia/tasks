@@ -11,7 +11,7 @@ services:
     ports:
       - 6379:6379
   app:
-    image: tasks2:latest   
+    image: tasks:latest   
     ports:
       - "3008:3008"
     volumes: &appvolumes
