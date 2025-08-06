@@ -4,7 +4,7 @@ import { MongoClient } from 'mongodb';
 
 const dbName = process.env.MONGODB_NAME ?? "jiraCBW";
 const PORT = process.env.MONGODB_PORT ?? 27017
-const URL = process.env.MONGODB_URL ?? "mongodb://localhost"
+const URL = process.env.MONGODB_URL ?? "mongodb://mongo"
 const uri = `${URL}:${PORT}`
 
 const client = new MongoClient(uri);

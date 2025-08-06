@@ -6,6 +6,7 @@
 import express from 'express';
 
 import {Task,TaskRepository} from "../models/TaskRepository"
+import {schedule} from "../queue/redis"
 
 const TaskController = async ()=>{
 
@@ -26,14 +27,14 @@ const TaskController = async ()=>{
 
     router.get('/', async (req, res) => {        
         const tasks = await repository.getAll()
-        res.status(200).send("<pre>"+JSON.stringify(tasks,null,4));        
+        res.status(200).send(JSON.stringify(tasks,null,4));        
     });
 
     router.get('/:id', async (req, res) => {
         const taskId = parseInt(req.params.id)
         if (taskId > 0){
             const task = await repository.get(taskId)
-            res.status(200).send("<pre>"+JSON.stringify(task,null,4));
+            res.status(200).send(JSON.stringify(task,null,4));
         }
     });
 
@@ -41,7 +42,7 @@ const TaskController = async ()=>{
         if (Task.STATUS.indexOf(req.params.status) > -1){
             const query = {status:req.params.status}
             const task = await repository.getAll(query)
-            res.status(200).send("<pre>"+JSON.stringify(task,null,4));
+            res.status(200).send(JSON.stringify(task,null,4));
         }else{
             const error = {
                 status:500,
@@ -50,6 +51,8 @@ const TaskController = async ()=>{
             res.status(500).send(JSON.stringify(error,null,4));
         }
     });
+
+    router.post('/:id/schedule',schedule);
 
     router.put('/:id', async (req, res) => {
         const taskId = parseInt(req.params.id)
