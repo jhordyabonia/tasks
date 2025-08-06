@@ -1,0 +1,19 @@
+services:
+
+  mongo:
+    image: mongo:latest
+    restart: always
+    ports:
+      - 27017:27017
+  redis:
+    image: redis:latest
+    restart: always
+    ports:
+      - 6379:6379
+  app:
+    image: tasks2:latest   
+    ports:
+      - "3008:3008"
+    volumes: &appvolumes
+      - ./dist/:/app/dist/:cached
+      - .env.example:/app/.env:cached
