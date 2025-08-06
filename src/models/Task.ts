@@ -1,3 +1,11 @@
+
+/**
+ * @author: Jhordy Abonia
+ * @email: jhordy.abonia@gmail.com
+ * @fecha: 06-08-2025
+ * 
+ * Model/Tasks modelo de datos de la app/microservicion Tasks
+ */
 'use-strict'
 
 class  Task {

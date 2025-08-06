@@ -1,3 +1,13 @@
+
+/**
+ * @author: Jhordy Abonia
+ * @email: jhordy.abonia@gmail.com
+ * @fecha: 06-08-2025
+ * 
+ * queue para la gestion de tareas asincronas de la app/microservicion Tasks
+ */
+'use-strict'
+
 import { Queue,Worker } from 'bullmq';
 
 const TASK_QUEUE = process.env.REDIS_TASK_QUEUE ?? "task-queue"

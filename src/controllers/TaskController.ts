@@ -1,6 +1,10 @@
 
 /**
+ * @author: Jhordy Abonia
+ * @email: jhordy.abonia@gmail.com
+ * @fecha: 06-08-2025
  * 
+ * Controller/Router para la gestion de la app/microservicion Tasks
  */
 'use-strict'
 import express from 'express';
