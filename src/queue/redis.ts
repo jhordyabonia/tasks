@@ -23,7 +23,6 @@ const schedule = async (req, res) => {
 
   if (!due_date || !message) {
     return res.status(400).json({status:"error",data:'due_date y message son requeridos.'});
-    return res.status(400).json({status:"error",data:'due_date y message son requeridos.'});
   }
 
   const delay = new Date(due_date).getTime() - Date.now();
