@@ -8,22 +8,23 @@
  */
 'use-strict'
 
-class  Task {
-    _id:number
-    title:string
-    status:string
-    priority:number
-    description:string
-    created_date:Date        
-    due_date:Date
-    assigned_to:string
-    author:string
-    project_id:number
+import { TaskInteface } from "./TaskInteface"
+
+class  Task implements TaskInteface {
+    _id: number
+    title: string
+    status: "pending"
+    priority: number
+    description: string
+    created_date: Date
+    due_date: Date
+    assigned_to: string
+    author: string
+    project_id: number
     tags = []
     permissions = []
     
     constructor() {}
-
     static STATUS = ["pending","prosessing","completed"]
     
     static parser = (data:Task):Task=>{

@@ -16,6 +16,7 @@
     "bullmq": "^5.56.9",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "joi": "^18.0.0",
     "mongodb": "^6.18.0",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
