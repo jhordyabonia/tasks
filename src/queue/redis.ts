@@ -22,13 +22,14 @@ const schedule = async (req, res) => {
   const { due_date, message } = req.body;
 
   if (!due_date || !message) {
-    return res.status(400).json({ error: 'due_date y message son requeridos.' });
+    return res.status(400).json({status:"error",data:'due_date y message son requeridos.'});
+    return res.status(400).json({status:"error",data:'due_date y message son requeridos.'});
   }
 
   const delay = new Date(due_date).getTime() - Date.now();
 
   if (delay <= 0) {
-    return res.status(400).json({ error: 'La due_date debe ser en el futuro.' });
+    return res.status(400).json({status:"error",data:'La due_date debe ser en el futuro.' });
   }
   try{
     const taskQueue = new Queue(TASK_QUEUE, { connection:redisConnection}); 
@@ -38,10 +39,10 @@ const schedule = async (req, res) => {
         { delay }                     
     );
   }catch(e){
-    return res.status(400).json({ error: e});  
+    return res.status(400).json({status:"error",data: e});  
   }
   console.log(`🔔 Trabajo de recordatorio programado para la tarea ${id}. Se ejecutará en ${Math.round(delay/1000)} segundos.`);
-  res.status(202).json({ message: `Recordatorio para la tarea ${id} programado.` });
+  res.status(202).json({status:"ok",data:`Recordatorio para la tarea ${id} programado.` });
 }
 
 const cron = ()=>{
