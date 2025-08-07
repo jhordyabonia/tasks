@@ -39,7 +39,11 @@ const TaskController = async ()=>{
         const taskId = parseInt(req.params.id)
         if (taskId > 0){
             const task = await repository.get(taskId)
-            res.status(200).send(JSON.stringify(task,null,4));
+            if (task == null){
+                res.status(404).send("Tasks not found!");
+            }else{
+                res.status(200).send(JSON.stringify(task,null,4));
+            }
         }
     });
 
