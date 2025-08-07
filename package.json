@@ -8,7 +8,7 @@
     "start": "node ./dist/app.js",
     "lint": "eslint . --no-ignore",
     "dev": "npm run lint && nodemon ./src/app.ts",
-    "cron": "npm run lint && nodemon ./src/cron.ts",
+    "cron": "npm run lint && nodemon ./src/app.ts",
     "build": "npx rollup -c"
   },
   "keywords": [],
@@ -16,7 +16,10 @@
     "bullmq": "^5.56.9",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "mongodb": "^6.18.0"
+    "joi": "^18.0.0",
+    "mongodb": "^6.18.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
     "@types/multer": "^1.4.11",
@@ -24,6 +27,7 @@
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.4.0",
     "eslint": "^8.52.0",
+    "eslint-plugin-builderbot": "latest",
     "nodemon": "^3.1.0",
     "rollup": "^4.10.0",
     "rollup-plugin-typescript2": "^0.36.0",

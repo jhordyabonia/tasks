@@ -1,0 +1,413 @@
+_type: export
+__export_format: 4
+__export_date: 2025-08-06T23:28:56.340Z
+__export_source: insomnia.desktop.app:v10.1.1
+resources:
+  - _id: req_1903f43b7dd24ff59c58e8bf191f2fd2
+    parentId: fld_fd8cae53db254875a751006517a20284
+    modified: 1754522860976
+    created: 1754522860976
+    url: "{{base_url}}/task"
+    name: Get data
+    description: >-
+      This is a GET request and it is used to "get" data from an endpoint. There
+      is no request body for a GET request, but you can use query parameters to
+      help specify the resource you want data on (e.g., in this request, we have
+      `id=1`).
+
+
+      A successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data.
+    method: GET
+    body: {}
+    parameters:
+      - name: id
+        value: "1"
+        disabled: false
+    headers: []
+    authentication: {}
+    preRequestScript: ""
+    metaSortKey: -1754522857096
+    isPrivate: false
+    afterResponseScript: |-
+      insomnia.test("Status code is 200", function () {
+          insomnia.response.to.have.status(200);
+      });
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_fd8cae53db254875a751006517a20284
+    parentId: wrk_62b6a353275c4b75bf1eb8d25305324f
+    modified: 1754522860974
+    created: 1754522860974
+    name: REST API Tasks-CBW
+    description: >-
+      # 🚀 Get started here
+
+
+      This template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.
+
+
+      ## 🔖 **How to use this template**
+
+
+      #### **Step 1: Send requests**
+
+
+      RESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.
+
+
+      This collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click "Send" to see what happens.
+
+
+      #### **Step 2: View responses**
+
+
+      Observe the response tab for status code (200 OK), response time, and size.
+
+
+      #### **Step 3: Send new Body data**
+
+
+      Update or add new data in "Body" in the POST request. Typically, Body data is also used in PUT request.
+
+
+      ```
+
+      {
+          "name": "Add your name in the body"
+      }
+
+       ```
+
+      #### **Step 4: Update the variable**
+
+
+      Variables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.
+
+
+      #### **Step 5: Add tests in the "Scripts" tab**
+
+
+      Adding tests to your requests can help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the "Test Results" tab.
+
+
+      <img src="https://content.pstmn.io/fa30ea0a-373d-4545-a668-e7b283cca343/aW1hZ2UucG5n" alt="" height="1530" width="2162">
+
+
+      ## 💪 Pro tips
+
+
+      - Use folders to group related requests and organize the collection.
+          
+      - Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) to verify if the API works as expected and execute workflows.
+          
+
+      ## 💡Related templates
+
+
+      [API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  
+
+      [API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  
+
+      [Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)
+    environment:
+      id: "1"
+      base_url: localhost:3008
+    environmentPropertyOrder: null
+    metaSortKey: -1754522857097
+    preRequestScript: ""
+    afterResponseScript: ""
+    authentication: {}
+    _type: request_group
+  - _id: wrk_62b6a353275c4b75bf1eb8d25305324f
+    parentId: null
+    modified: 1754522860972
+    created: 1754522860972
+    name: REST API Tasks-CBW
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_3da10a1aaa274ffa856d49b7575e28af
+    parentId: fld_fd8cae53db254875a751006517a20284
+    modified: 1754522860977
+    created: 1754522860977
+    url: "{{base_url}}/tasks"
+    name: Post data
+    description: >-
+      This is a POST request, submitting data to an API via the request body.
+      This request submits JSON data, and the data is reflected in the response.
+
+
+      A successful POST request typically returns a `200 OK` or `201 Created` response code.
+    method: POST
+    body:
+      mimeType: ""
+      text: |-
+        
+        {
+        "_id": 1,
+        "title": "task",
+        "status": "pending",
+        "priority": 1,
+        "description":"task 1",
+        "created_date": "08-06-2025",
+        "due_date": "09-06-2025",
+        "assigned_to": "jhon@doe.cl",
+        "author": "jhon@doe.cl",
+        "project_id": 1,
+        "tags": [],
+        "permissions": []
+        }
+    parameters: []
+    headers: []
+    authentication: {}
+    preRequestScript: ""
+    metaSortKey: -1754522857095
+    isPrivate: false
+    afterResponseScript: |
+      insomnia.test("Successful POST request", function () {
+          insomnia.expect(insomnia.response.code).to.be.oneOf([200, 201]);
+      });
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_78eac263b9db4cfb99553c49278f7598
+    parentId: fld_fd8cae53db254875a751006517a20284
+    modified: 1754522860978
+    created: 1754522860978
+    url: "{{base_url}}/tasks/1/schedule"
+    name: schedule
+    description: >-
+      This is a POST request, submitting data to an API via the request body.
+      This request submits JSON data, and the data is reflected in the response.
+
+
+      A successful POST request typically returns a `200 OK` or `201 Created` response code.
+    method: POST
+    body:
+      mimeType: ""
+      text: |-
+        
+        {
+        "_id": 1,
+        "title": "task",
+        "message": "pending",
+        "due_date": "09-06-2025"
+        }
+    parameters: []
+    headers: []
+    authentication: {}
+    preRequestScript: ""
+    metaSortKey: -1754522857094
+    isPrivate: false
+    afterResponseScript: |
+      insomnia.test("Successful POST request", function () {
+          insomnia.expect(insomnia.response.code).to.be.oneOf([200, 201]);
+      });
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_e2321687254a4af280bddd91a65359a1
+    parentId: fld_fd8cae53db254875a751006517a20284
+    modified: 1754522860979
+    created: 1754522860979
+    url: "{{base_url}}/tasks/status/:status"
+    name: get By Status
+    description: >-
+      This is a POST request, submitting data to an API via the request body.
+      This request submits JSON data, and the data is reflected in the response.
+
+
+      A successful POST request typically returns a `200 OK` or `201 Created` response code.
+    method: GET
+    body:
+      mimeType: ""
+      text: |-
+        
+        {
+        "_id": 1,
+        "title": "task",
+        "status": "pending",
+        "priority": 1,
+        "description":"task 1",
+        "created_date": "08-06-2025",
+        "due_date": "09-06-2025",
+        "assigned_to": "jhon@doe.cl",
+        "author": "jhon@doe.cl",
+        "project_id": 1,
+        "tags": [],
+        "permissions": []
+        }
+    parameters: []
+    headers: []
+    authentication: {}
+    preRequestScript: ""
+    metaSortKey: -1754522857093
+    isPrivate: false
+    afterResponseScript: |
+      insomnia.test("Successful POST request", function () {
+          insomnia.expect(insomnia.response.code).to.be.oneOf([200, 201]);
+      });
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_abee2b0ee0ec4ca1b5705d108bdc0a59
+    parentId: fld_fd8cae53db254875a751006517a20284
+    modified: 1754522860979
+    created: 1754522860979
+    url: "{{base_url}}/tasks"
+    name: Update data
+    description: >-
+      This is a PUT request and it is used to overwrite an existing piece of
+      data. For instance, after you create an entity with a POST request, you
+      may want to modify that later. You can do that using a PUT request. You
+      typically identify the entity being updated by including an identifier in
+      the URL (eg. `id=1`).
+
+
+      A successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code.
+    method: PUT
+    body:
+      mimeType: ""
+      text: |-
+        
+        {
+        "_id": 1,
+        "title": "task edited",
+        "status": "pending",
+        "priority": 1,
+        "description":"task 1 (edited)",
+        "created_date": "08-06-2025",
+        "due_date": "09-06-2025",
+        "assigned_to": "jhon@doe.cl",
+        "author": "jhon@doe.cl",
+        "project_id": 1,
+        "tags": [],
+        "permissions": []
+        }
+    parameters: []
+    headers: []
+    authentication: {}
+    preRequestScript: ""
+    metaSortKey: -1754522857092
+    isPrivate: false
+    afterResponseScript: |
+      insomnia.test("Successful PUT request", function () {
+          insomnia.expect(insomnia.response.code).to.be.oneOf([200, 201, 204]);
+      });
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_0e76319c70f24219bce1fddb2dd2c8c3
+    parentId: fld_fd8cae53db254875a751006517a20284
+    modified: 1754522860980
+    created: 1754522860980
+    url: "{{base_url}}/tasks/1"
+    name: Parcial Update data
+    description: >-
+      This is a PUT request and it is used to overwrite an existing piece of
+      data. For instance, after you create an entity with a POST request, you
+      may want to modify that later. You can do that using a PUT request. You
+      typically identify the entity being updated by including an identifier in
+      the URL (eg. `id=1`).
+
+
+      A successful PUT request typically returns a `200 OK`, `201 Created`, or `204 No Content` response code.
+    method: PATCH
+    body:
+      mimeType: ""
+      text: |-
+        
+        {
+        "status": "pending"
+        }
+    parameters: []
+    headers: []
+    authentication: {}
+    preRequestScript: ""
+    metaSortKey: -1754522857091
+    isPrivate: false
+    afterResponseScript: |
+      insomnia.test("Successful PUT request", function () {
+          insomnia.expect(insomnia.response.code).to.be.oneOf([200, 201, 204]);
+      });
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_9b8ecb9988ec45bd8ff1adb328ecb16b
+    parentId: fld_fd8cae53db254875a751006517a20284
+    modified: 1754522860981
+    created: 1754522860981
+    url: "{{base_url}}/tasks/1"
+    name: Delete data
+    description: >-
+      This is a DELETE request, and it is used to delete data that was
+      previously created via a POST request. You typically identify the entity
+      being updated by including an identifier in the URL (eg. `id=1`).
+
+
+      A successful DELETE request typically returns a `200 OK`, `202 Accepted`, or `204 No Content` response code.
+    method: DELETE
+    body: {}
+    parameters:
+      - name: id
+        value: "1"
+        disabled: false
+    headers: []
+    authentication: {}
+    preRequestScript: ""
+    metaSortKey: -1754522857090
+    isPrivate: false
+    afterResponseScript: |
+      insomnia.test("Successful DELETE request", function () {
+          insomnia.expect(insomnia.response.code).to.be.oneOf([200, 202, 204]);
+      });
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_a753a15d14725a286138106723180f68ea2480b9
+    parentId: wrk_62b6a353275c4b75bf1eb8d25305324f
+    modified: 1754522866266
+    created: 1754522866266
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1754522866266
+    _type: environment
+  - _id: jar_a753a15d14725a286138106723180f68ea2480b9
+    parentId: wrk_62b6a353275c4b75bf1eb8d25305324f
+    modified: 1754522866267
+    created: 1754522866267
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar

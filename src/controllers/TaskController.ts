@@ -11,6 +11,7 @@ import express from 'express';
 
 import {Task,TaskRepository} from "../models/TaskRepository"
 import {schedule} from "../queue/redis"
+import { validateTasks,validateTasksId } from '~/validation/tasksValidation';
 
 const TaskController = async ()=>{
 
@@ -18,7 +19,7 @@ const TaskController = async ()=>{
     await repository.start()
 
     const router = express.Router();
-    router.post('/', async (req, res) => {
+    router.post('/', validateTasks,async (req, res) => {
         const task = Task.parser(req.body)
         
         try{
