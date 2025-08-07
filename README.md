@@ -76,6 +76,186 @@ This method ensures that the application runs in a consistent environment across
 
 ## Usage
 
+- #### POST /tasks:
+   payload:
+   <pre>
+      {
+         "_id": 1,
+         "title": "tasks",
+         "status": "pending",
+         "priority": 1,
+         "description": "task 1",
+         "created_date": "06-08-2025",
+         "due_date": "06-09-2025",
+         "assigned_to": "jhon@doe.cl",
+         "author"jhon@doe.cl",
+         "project_id": 1,
+         "tags": [],
+         "permissions": []
+      }    
+   </pre>
+   result:
+      <pre>
+      1
+      </pre>
 
+   error:
+   <pre>
+      {
+         "code": 11000,
+         "errmsg": "E11000 duplicate key error collection: jiraCBW.tasks index: _id_ dup key: { _id: 1 }",        
+      }
+   </pre>
+
+- #### GET /tasks:
+   result:
+   <pre>
+      [
+         {
+         "_id": 1,
+         "title": "tasks",
+         "status": "pending",
+         "priority": 1,
+         "description": "task 1",
+         "created_date": "06-08-2025",
+         "due_date": "06-09-2025",
+         "assigned_to": "jhon@doe.cl",
+         "author"jhon@doe.cl",
+         "project_id": 1,
+         "tags": [],
+         "permissions": []
+         },
+         ...
+      ]
+   </pre>
+
+- #### GET /tasks/status/:status:     [pending,in_progress,completed]
+   result:
+   <pre>
+      [
+         {
+         "_id": 1,
+         "title": "tasks",
+         "status": "pending",
+         "priority": 1,
+         "description": "task 1",
+         "created_date": "06-08-2025",
+         "due_date": "06-09-2025",
+         "assigned_to": "jhon@doe.cl",
+         "author"jhon@doe.cl",
+         "project_id": 1,
+         "tags": [],
+         "permissions": []
+         },
+         ...
+      ]
+   </pre>
+
+- #### GET /tasks/1: 
+   result:
+    <pre>
+      {
+         "_id": 1,
+         "title": "tasks",
+         "status": "pending",
+         "priority": 1,
+         "description": "task 1",
+         "created_date": "06-08-2025",
+         "due_date": "06-09-2025",
+         "assigned_to": "jhon@doe.cl",
+         "author"jhon@doe.cl",
+         "project_id": 1,
+         "tags": [],
+         "permissions": []
+      }     
+   </pre>
+
+- #### PUT /tasks/1
+   payload:
+   <pre>
+      {
+         "_id": 1,
+         "title": "tasks",
+         "status": "pending",
+         "priority": 1,
+         "description": "task 1",
+         "created_date": "06-08-2025",
+         "due_date": "06-09-2025",
+         "assigned_to": "jhon@doe.cl",
+         "author"jhon@doe.cl",
+         "project_id": 1,
+         "tags": [],
+         "permissions": []
+      }      
+   </pre>
+   result:
+   <pre>
+      {
+         "_id": 1,
+         "title": "tasks",
+         "status": "pending",
+         "priority": 1,
+         "description": "task 1",
+         "created_date": "06-08-2025",
+         "due_date": "06-09-2025",
+         "assigned_to": "jhon@doe.cl",
+         "author"jhon@doe.cl",
+         "project_id": 1,
+         "tags": [],
+         "permissions": []
+      }      
+    </pre>
+
+- #### PATCH /tasks/1:
+   payload:
+  <pre>
+      {
+         "title": "tasks (edited)"
+      }  
+   </pre>
+   result:
+   <pre>
+      {
+         "_id": 1,
+         "title": "tasks",
+         "status": "pending",
+         "priority": 1,
+         "description": "task 1",
+         "created_date": "06-08-2025",
+         "due_date": "06-09-2025",
+         "assigned_to": "jhon@doe.cl",
+         "author"jhon@doe.cl",
+         "project_id": 1,
+         "tags": [],
+         "permissions": []
+      }  
+    </pre>
+
+- #### DELETE /tasks/1:
+   result:
+      <pre>
+      1  
+      </pre>
+
+- #### POST /tasks/1/schedule:
+   payload:
+  <pre>
+      {
+         "due_date": "08-09-2025"
+         "message": 1
+      }  
+   </pre>
+   result:
+   <pre>
+      {
+         "message": "Recordatorio para la tarea 1 programado."
+      }
+   </pre>
+   error:
+   <pre>
+      {
+      "error": "La due_date debe ser en el futuro."
+      }
+   </pre>
 ## Documentation
 
